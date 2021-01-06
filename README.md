@@ -83,7 +83,7 @@ Através dessa aplicação, será possível realizar as operações básicas de 
 
   - Serão dois dias de projeto.
   
-  - Data de entrega para avaliação final do projeto: `DD/MM/YYYY - 14:00h`.
+  - Data de entrega para avaliação final do projeto: `14/01/2021 - 14:00h`.
 
 ---
 
