@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import userAction from '../actions/index';
+
 class Login extends React.Component {
   constructor() {
     super();
@@ -32,8 +33,9 @@ class Login extends React.Component {
       this.setState({ passwordValidated: false });
     }
   }
+
   render() {
-    const {emailValidated, passwordValidated, email } = this.state;
+    const { emailValidated, passwordValidated, email } = this.state;
     const { saveEmail } = this.props;
     return (
       <div>
