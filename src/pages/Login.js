@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import userAction from '../actions/index';
+
 class Login extends React.Component {
   constructor() {
     super();
@@ -14,14 +15,16 @@ class Login extends React.Component {
     this.validatingEmail = this.validatingEmail.bind(this);
     this.validatingPassword = this.validatingPassword.bind(this);
   }
+
   validatingEmail(email) {
     const regex = /.+@[A-z]+[.]com/i;
     if (regex.test(email.toLowerCase())) {
-      this.setState({emailValidated: true, email });
+      this.setState({ emailValidated: true, email });
     } else {
-      this.setState({emailValidated: false });
+      this.setState({ emailValidated: false });
     }
   }
+
   validatingPassword(password) {
     const passwordLength = 6;
     if (password.length >= passwordLength) {
@@ -30,8 +33,9 @@ class Login extends React.Component {
       this.setState({ passwordValidated: false });
     }
   }
+
   render() {
-    const {emailValidated, passwordValidated, email } = this.state;
+    const { emailValidated, passwordValidated, email } = this.state;
     const { saveEmail } = this.props;
     return (
       <div>
@@ -55,11 +59,8 @@ class Login extends React.Component {
           <button
             type="button"
             disabled={ !(emailValidated && passwordValidated) }
-            onClick={ () => saveEmail(email) }
-          >
-            Entrar
-          </button>
-        </Link>
+            onClick={ () =// Esse reducer será responsável por tratar as informações da pessoa usuária
+
       </div>);
   }
 }
@@ -70,8 +71,8 @@ export default connect(null, mapDispatchToProps)(Login);
 Login.propTypes = {
   saveEmail: PropTypes.func.isRequired,
 };
-//References:
-//Validating email:
-//toLowerCase:
-//https://www.w3schools.com/jsref/jsref_tolowercase.asp#:~:text=The%20toLowerCase()%20method%20converts,a%20string%20to%20uppercase%20letters.
-//https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascriptimport
+//  References:
+//  Validating email:
+//  toLowerCase:
+//  https://www.w3schools.com/jsref/jsref_tolowercase.asp#:~:text=The%20toLowerCase()%20method%20converts,a%20string%20to%20uppercase%20letters.
+//  https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascriptimport
