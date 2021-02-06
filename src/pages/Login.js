@@ -80,4 +80,4 @@ Login.propTypes = {
 //  Validating email:
 //  toLowerCase:
 //  https://www.w3schools.com/jsref/jsref_tolowercase.asp#:~:text=The%20toLowerCase()%20method%20converts,a%20string%20to%20uppercase%20letters.
-//  https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascriptimport 
+//  https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascriptimport
