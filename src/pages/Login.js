@@ -1,22 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import userAction from '../actions/index';
+import { Link } from 'react-router-dom';
+import { storeEmail } from '../actions';
 
 class Login extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       email: '',
-      emailValidated: false,
       passwordValidated: false,
+      emailValidated: false,
     };
-    this.validatingEmail = this.validatingEmail.bind(this);
-    this.validatingPassword = this.validatingPassword.bind(this);
+
+    this.emailValidation = this.emailValidation.bind(this);
+    this.passwordValidation = this.passwordValidation.bind(this);
   }
 
-  validatingEmail(email) {
+  emailValidation(email) {
     const regex = /.+@[A-z]+[.]com/i;
     if (regex.test(email.toLowerCase())) {
       this.setState({ emailValidated: true, email });
@@ -25,7 +26,7 @@ class Login extends React.Component {
     }
   }
 
-  validatingPassword(password) {
+  passwordValidation(password) {
     const passwordLength = 6;
     if (password.length >= passwordLength) {
       this.setState({ passwordValidated: true });
@@ -44,15 +45,15 @@ class Login extends React.Component {
           type="text"
           data-testid="email-input"
           name="email"
-          onChange={ (e) => this.validatingEmail(e.target.value) }
+          onChange={ (e) => this.emailValidation(e.target.value) }
           placeholder="Email"
         />
         <br />
         <input
           type="password"
           data-testid="password-input"
-          onChange={ (e) => this.validatingPassword(e.target.value) }
-          placeholder="Senha"
+          onChange={ (e) => this.passwordValidation(e.target.value) }
+          placeholder="Password"
         />
         <br />
         <Link to="/carteira">
@@ -67,11 +68,13 @@ class Login extends React.Component {
       </div>);
   }
 }
+
 const mapDispatchToProps = (dispatch) => ({
-  saveEmail: (email) => dispatch(userAction(email)),
+  saveEmail: (email) => dispatch(storeEmail(email)),
 });
 
 export default connect(null, mapDispatchToProps)(Login);
+
 Login.propTypes = {
   saveEmail: PropTypes.func.isRequired,
 };
