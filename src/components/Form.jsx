@@ -109,4 +109,3 @@ Form.propTypes = {
   editingExpense: PropTypes.bool.isRequired,
   saveExpensesToStore: PropTypes.func.isRequired,
 };
-

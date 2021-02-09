@@ -76,7 +76,6 @@ Table.propTypes = {
   expenses: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleEditClick: PropTypes.func.isRequired,
 };
-
 // tag tr - row of cells in a table
 // tag td - cell of a table that contains data
 // cell as header of a group of table cells
