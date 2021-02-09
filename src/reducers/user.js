@@ -1,4 +1,3 @@
-
 import { EMAIL_STORE } from '../actions';
 
 const initialState = {
